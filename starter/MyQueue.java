@@ -12,6 +12,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      *                        can hold.
      */
     public MyQueue(int initialCapacity) {
+        theQueue = new MyDeque<>(initialCapacity);
     }
 
     /**
@@ -21,6 +22,9 @@ public class MyQueue<E> implements QueueInterface<E> {
      */
     @Override
     public boolean empty() {
+        if(theQueue.size() == 0)
+            return true;
+
         return false;
     }
 
@@ -31,6 +35,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      */
     @Override
     public void enqueue(E element) {
+        theQueue.addLast(element);
     }
 
     /**
@@ -42,7 +47,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      */
     @Override
     public E dequeue() {
-        return null;
+        return theQueue.removeFirst();
     }
 
     /**
@@ -53,7 +58,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      */
     @Override
     public E peek() {
-        return null;
+        return theQueue.peekFirst();
     }
 
     /**

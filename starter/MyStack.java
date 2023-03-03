@@ -12,6 +12,7 @@ public class MyStack<E> implements StackInterface<E> {
      *                        can hold.
      */
     public MyStack(int initialCapacity) {
+        theStack = new MyDeque<>(initialCapacity);
     }
 
     /**
@@ -21,6 +22,9 @@ public class MyStack<E> implements StackInterface<E> {
      */
     @Override
     public boolean empty() {
+        if(theStack.size() == 0)
+            return true;
+
         return false;
     }
 
@@ -31,6 +35,7 @@ public class MyStack<E> implements StackInterface<E> {
      */
     @Override
     public void push(E element) {
+        theStack.addLast(element);
     }
 
     /**
@@ -41,7 +46,7 @@ public class MyStack<E> implements StackInterface<E> {
      */
     @Override
     public E pop() {
-        return null;
+        return theStack.removeLast();
     }
 
     /**
@@ -52,7 +57,7 @@ public class MyStack<E> implements StackInterface<E> {
      */
     @Override
     public E peek() {
-        return null;
+        return theStack.peekLast();
     }
 
     /**
